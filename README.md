@@ -1,31 +1,29 @@
-# CSA Helper
+# CSA Helper (Independent Agent Suite)
 
-CSA Helper is an **independent, agent-based assistant system** designed to support
+CSA Helper is an **independent, framework-agnostic, agent-based assistant system** designed to support
 **Cloud & AI CSAs** delivering **AI Apps / Agents / Copilot / GenAI** solutions.
 
-This repo is **framework-agnostic** and focuses on:
-- Production-ready thinking
-- Security-first delivery
-- VBD-aligned execution
-- Job 1 / Job 2 CSA outcomes
+This repo focuses on:
+- Production-ready delivery thinking
+- Security-first behavior and safe information handling
+- Outcome alignment (Job 1 / Job 2 discipline)
+- Repeatable delivery guidance (VBD-style execution and milestones)
 
-## Grounding principles
-CSA Helper is informed by internal CSA practices:
-- FY26 Cloud & AI CSA role expectations
-- Value Based Deliverables (VBD) execution
-- MCEM-aligned delivery
-- Microsoft Security Policy
+## What this is (and is not)
+- ✅ A set of role-aligned **agent prompts** you can load into any runtime
+- ✅ A standard set of **artifacts** (scope, RAID, security gate, recap, expansion plan)
+- ❌ Not coupled to any specific agent platform or framework
 
-(No framework or runtime dependency is assumed.)
+## Repo layout
+- `agents/` — one prompt per agent
+- `manifests/` — lightweight manifest for the suite
 
-## Design principles
-- **Security-first**: explicit gating for data handling and access
-- **Outcome-driven**: every action ties to CSA Job 1 or Job 2
-- **Repeatable delivery**: prefer reusable patterns over bespoke work
-- **Field-ready artifacts**: checklists, scopes, RAID logs, and narratives
-
-## Usage
+## How to use
 Start with:
-`agents/01-csa-orchestrator.md`
+- `agents/01-csa-orchestrator.md`
 
-The orchestrator routes work to specialized agents based on intent.
+The orchestrator will route work to specialized agents based on intent.
+
+## Notes
+- These prompts include **hard guardrails** for safe handling of Microsoft/customer information.
+- Where internal policies are required, the prompts instruct the agent to avoid inventing procedures and to require permission/owner context.

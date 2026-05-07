@@ -13,7 +13,7 @@ def main() -> int:
     if len(sys.argv) < 2:
         print('usage: python run_once.py "your prompt here"', file=sys.stderr)
         return 2
-    load_dotenv()
+    load_dotenv(override=True)
     team = build_team()
     answer, trace = team.ask(" ".join(sys.argv[1:]))
     print("=== trace ===")

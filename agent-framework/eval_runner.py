@@ -67,7 +67,7 @@ def judge_client() -> tuple[AzureOpenAI, str]:
 
 
 def main() -> int:
-    load_dotenv()
+    load_dotenv(override=True)
     team = build_team()
     judge, judge_deployment = judge_client()
 

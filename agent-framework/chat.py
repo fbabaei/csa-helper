@@ -7,7 +7,7 @@ from build_team import build_team
 
 
 def main() -> None:
-    load_dotenv()
+    load_dotenv(override=True)
     team = build_team()
     print(f"CSA Helper ready. {len(team.specialists)} specialists registered.")
     print("Type 'exit' to quit, ':trace' to toggle handoff trace.\n")

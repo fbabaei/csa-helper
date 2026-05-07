@@ -1,0 +1,42 @@
+# One-line handoff descriptions for each connected agent.
+# Copilot Studio's router uses these to decide when to delegate.
+# Keep each line action-oriented: "Use when ...".
+
+security_sentinel: |
+  Use when the request involves customer data, secrets, credentials, PII, security review,
+  or any handling of Microsoft or customer information. Always invoke before any data action.
+
+engagement_intake: |
+  Use to define a new engagement: capture phase, primary outcome, success criteria, and
+  whether the customer has support / proactive services in place.
+
+milestone_coach: |
+  Use to unblock a milestone, build a RAID log, or produce a commit-to-complete execution
+  plan for an in-flight delivery.
+
+vbd_planner: |
+  Use to map a customer outcome to a repeatable delivery (VBD-style) and pick the right
+  delivery pattern instead of bespoke work.
+
+delivery_request_navigator: |
+  Use to pick the right delivery request path and check staffing / readiness for a
+  proposed delivery.
+
+ai_apps_architecture: |
+  Use for AI app and agent architecture questions: model choice, RAG vs fine-tune,
+  Foundry / Agent Framework design, evaluation strategy.
+
+security_architecture_readiness: |
+  Use for the production-readiness security gate: identity, network boundaries, secret
+  management, data residency, responsible-AI controls.
+
+execution_hygiene: |
+  Use at delivery closeout: recap, operational handoff, SLOs, completion reminders, and
+  documentation hygiene.
+
+post_delivery_expansion: |
+  Use after a successful delivery to identify the next best action and Job-2 expansion
+  opportunities.
+
+impact_reporting: |
+  Use to draft the impact narrative for leadership updates, MBRs, or monthly reports.

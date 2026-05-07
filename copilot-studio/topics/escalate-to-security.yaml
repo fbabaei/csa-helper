@@ -1,0 +1,43 @@
+# Copilot Studio topic: escalate-to-security
+# Forces a hand-off to the Security Sentinel agent when the user mentions
+# secrets, credentials, customer data, PII, or security review.
+#
+# Import: Copilot Studio -> your agent -> Topics -> Add -> From file.
+
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    triggerQueries:
+      - secret
+      - secrets
+      - credential
+      - credentials
+      - api key
+      - connection string
+      - customer data
+      - customer information
+      - PII
+      - personally identifiable
+      - security review
+      - data handling
+      - data residency
+      - share data with
+      - send data to
+  actions:
+    - kind: SendActivity
+      id: ack
+      activity: |-
+        Routing this to **Security Sentinel** first because it touches data, secrets, or customer information.
+
+    - kind: InvokeConnectedAgentAction
+      id: handoff
+      agent: security_sentinel
+      input:
+        request: =System.Activity.Text
+
+    - kind: SendActivity
+      id: done
+      activity: |-
+        Security review complete. Want me to continue with the originally requested task?

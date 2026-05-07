@@ -1,5 +1,6 @@
 # local
 .agent_ids.json
+eval_results.json
 __pycache__/
 *.pyc
 .venv/

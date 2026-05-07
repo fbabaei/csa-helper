@@ -57,6 +57,7 @@ $env:MODEL_DEPLOYMENT_NAME = "gpt-4o-mini"
 | `register_agents.py` | Reads `../agents/*.md` + `../manifests/csa-helper-manifest.yaml`, creates one Foundry agent per file, then creates the **CSA Orchestrator** with all the others wired as connected-agent tools. Writes the orchestrator id to `.agent_ids.json`. |
 | `invoke.py` | Loads `.agent_ids.json`, opens a thread, sends a user prompt to the orchestrator, prints the assistant reply. |
 | `cleanup.py` | Deletes every agent recorded in `.agent_ids.json` from the Foundry project. |
+| `eval_runner.py` | Runs every scenario in `../eval/*.md` against the orchestrator, scores each with an LLM judge (Azure OpenAI), writes `eval_results.json`. |
 
 ---
 
@@ -72,7 +73,12 @@ python invoke.py "Customer wants to pilot an AI agent in 6 weeks. Help me scope 
 # 3. Try a security-sensitive prompt — sentinel should engage
 python invoke.py "I want to share a customer's prod log file with my teammate, can you help?"
 
-# 4. Tear it down
+# 4. Run the eval pack
+$env:JUDGE_OPENAI_ENDPOINT          = "https://<your-aoai>.openai.azure.com/"
+$env:JUDGE_MODEL_DEPLOYMENT_NAME   = "gpt-4o"
+python eval_runner.py
+
+# 5. Tear it down
 python cleanup.py
 ```
 
@@ -96,8 +102,9 @@ python cleanup.py
 
 - This is the **hosted-agent** path; nothing runs locally except the SDK
   client. Conversations and runs are managed by Foundry.
-- For evaluation, point the cases in `../eval/` at the orchestrator id with
-  the Foundry batch-eval tooling.
+- `eval_runner.py` is a lightweight LLM-as-judge harness for the cases in
+  `../eval/`. For larger eval suites you can also use Foundry's hosted batch
+  evaluation against the same orchestrator id.
 - To upgrade prompts, edit the markdown under `../agents/`, then re-run
   `cleanup.py` followed by `register_agents.py`. (A future enhancement could
   patch in place via `agents.update_agent`.)

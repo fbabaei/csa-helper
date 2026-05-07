@@ -1,0 +1,16 @@
+name: CSA Helper
+version: 0.1.0
+entrypoint: agents/01-csa-orchestrator.md
+
+agents:
+  - security_sentinel
+  - csa_orchestrator
+  - engagement_intake
+  - milestone_coach
+  - vbd_planner
+  - delivery_request_navigator
+  - ai_apps_architecture
+  - security_architecture
+  - execution_hygiene
+  - post_delivery_expansion
+  - impact_reporting

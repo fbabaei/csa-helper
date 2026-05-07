@@ -1,0 +1,5 @@
+# local
+.agent_ids.json
+__pycache__/
+*.pyc
+.venv/

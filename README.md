@@ -19,10 +19,13 @@ This repo focuses on:
 - `manifests/` — lightweight manifest for the suite
 
 ## How to use
-Start with:
-- `agents/01-csa-orchestrator.md`
 
-The orchestrator will route work to specialized agents based on intent.
+See **[QUICKSTART.md](QUICKSTART.md)** to pick a runtime and run it in ~5 minutes:
+- [`agent-framework/`](agent-framework/) — local Python team via Azure OpenAI
+- [`foundry/`](foundry/) — Azure AI Foundry connected agents
+- [`copilot-studio/`](copilot-studio/) — paste-ready Copilot Studio instructions
+
+All three load `agents/01-csa-orchestrator.md` as the entry point and route to specialists by intent.
 
 ## Notes
 - These prompts include **hard guardrails** for safe handling of Microsoft/customer information.
